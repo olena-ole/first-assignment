@@ -58,6 +58,36 @@ personalMovieDB.movies[secondFilm] = secondFilmRating;
 
 console.log(personalMovieDB);
 console.log(personalMovieDB.movies);
+
+let num = 50;
+
+/* Пример использования условий
+if (num < 49) {
+    console.log("Error");
+} else if (num > 100) {
+    console.log("Too much");
+} else {
+    console.log("Ok!");
+} */
+
+// пример тернарного оператора
+(num === 50) ? console.log("Error") : console.log("Ok!");
+
+// пример swith
+switch (num) {
+    case 49:
+        console.log("Неправда");
+        break;
+    case 100:
+        console.log("Не совсем");
+        break;
+    case 50:
+        console.log("В точку!");
+        break;
+    default:
+        console.log("не в этот раз");
+        break;
+}
 /* Задание на урок:
 
 1) Автоматизировать вопросы пользователю про фильмы при помощи цикла
