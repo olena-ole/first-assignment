@@ -88,7 +88,29 @@ switch (num) {
         console.log("не в этот раз");
         break;
 }
-/* Задание на урок:
+
+/* while (num < 55) {
+    console.log(num);
+    num++;
+} */
+
+/* do {
+    console.log(num);
+    num++;
+}
+while (num < 55); */
+
+/* for (let i = 1; i < 8; i++) {
+    console.log(i);
+} */
+
+for (let i = 1; i < 10; i++) {
+    if (i === 6) {
+        continue;
+    }
+    console.log(i);
+}
+/* Задание на урок: 
 
 1) Автоматизировать вопросы пользователю про фильмы при помощи цикла
 
