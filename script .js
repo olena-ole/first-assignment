@@ -99,6 +99,45 @@ while (i < 2); */
 console.log(personalMovieDB);
 console.log(personalMovieDB.movies); 
 
+
+
+
+
+
+let numb = 20;
+function showFirstMessage(text) {
+    console.log(text);
+    let numb = 90;
+}
+showFirstMessage("Hello World");
+console.log(numb);
+
+function calc(a, b) {
+    return (a + b);
+}
+console.log(calc(-5, 6));
+
+
+function ret() {
+    let num = 50;
+    return num;
+}
+const anotherNum = ret();
+console.log(anotherNum);
+
+const logger = function() {
+console.log("Helo");
+};
+logger();
+
+const calcul = (a, b) => {
+    return (a + b);
+};
+console.log(calcul(5, 7));
+
+
+
+
 let num = 50;
 
 /* Пример использования условий
