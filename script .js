@@ -101,8 +101,28 @@ console.log(personalMovieDB.movies);
 
 
 
+// Тренируемся по свойствам и методам строк и чисел
+let str = "test";
+console.log(str.toUpperCase());
+console.log(str);
 
+// indexOf() method
+let fruit = "Some fruit";
+console.log(fruit.indexOf("fox"));
+console.log(fruit.indexOf("fruit"));
 
+//меняем строки using slice(), substring(), substr() methods
+let logg = "Hello World";
+console.log(logg.substr(6, 5));
+
+// using Math methods
+let figure = 12.8;
+console.log(Math.floor(figure));
+
+// using parseInt() and parseFloat()
+let test = "12.2px";
+console.log(parseInt(test));
+console.log(parseFloat(test));
 
 let numb = 20;
 function showFirstMessage(text) {
