@@ -69,6 +69,58 @@ function writeYourGenres() {
 
 writeYourGenres();
 
+//Objects, object methods, object destructuring
+const options = {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors: {
+        border: 'black',
+        bg: 'red'
+    },
+    makeTest: function() {
+        console.log("Test");
+    }
+};
+
+options.makeTest();
+
+//Destructuring Objects
+const {border, bg} = options.colors;
+console.log(border);
+console.log(bg);
+
+/* deleting key:value 
+delete options.name;
+console.log(options); */
+
+//Перебираем свойства объекта с помощью for in
+for (let key in options) {
+    if (typeof(options[key]) === "object") {
+        for (let i in options[key]) {
+        console.log(`Свойство ${i} имеет значение ${options[key][i]}`); 
+        }
+    } else {
+    console.log(`Свойство ${key} имеет значение ${options[key]}`);    
+    } 
+}
+
+//Используем счётчик, чтобы узнать сколько свойств в объекте
+let counter = 0;
+for (let key in options) {
+    counter++;
+}
+console.log(counter);
+
+// Используем Oblect.keys(), чтобы узнать сколько свойств в объекте
+console.log(Object.keys(options));
+console.log(Object.keys(options).length);
+console.log(Object.keys(options["colors"]));
+console.log(Object.keys(options["colors"]).length);
+console.log(Object.keys(options.colors).length);
+console.log(Object.keys(options.colors));
+
+
 //Callback function examples
 function first() {
     //do something
