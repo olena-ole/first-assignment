@@ -69,6 +69,36 @@ function writeYourGenres() {
 
 writeYourGenres();
 
+//Callback function examples
+function first() {
+    //do something
+    setTimeout(function() {
+        console.log(1);
+    }, 500);
+}
+
+function second() {
+    console.log(2);
+}
+
+first();
+second();
+
+function learnJS(lang, callback) {
+    console.log(`I am learning ${lang}`);
+    callback();
+}
+
+/* function done() {
+    console.log("I have watched this lesson");
+}
+learnJS("Javascript", done); */
+
+//Using Anonymous Function
+learnJS("JavaScript", function() {
+    console.log("I have watched this lesson");
+});
+
  // Потренироваться и переписать цикл еще двумя способами
  // Первый способ
 
