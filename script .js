@@ -69,6 +69,37 @@ function writeYourGenres() {
 
 writeYourGenres();
 
+//JS principles
+let str = 'some';
+let strObj = new String(str);
+console.log(typeof(str)); //string
+console.log(typeof(strObj)); //object
+console.dir([1, 2, 3]); //go to browser
+
+//OOP
+const soldier = {
+    health: 400,
+    armour: 100, 
+    sayHello: function() {
+        console.log("Hello");
+    }
+};
+
+const john = Object.create(soldier); //modern way, often used
+john.sayHello(); //Hello
+/* 
+const john = {
+    health: 100
+};
+
+//john.__proto__ = soldier; //we don't use this anymore, it's deprecated
+Object.setPrototypeOf(john, soldier); //modern way, used in dynamics
+console.log(john); //{ health: 100 }
+console.log(john.armour); //100
+john.sayHello(); //Hello 
+*/
+
+
 // Передача по ссылке или по значению
 
 //Работаем с примитивными данными
