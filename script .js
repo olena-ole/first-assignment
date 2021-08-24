@@ -69,198 +69,102 @@ function writeYourGenres() {
 
 writeYourGenres();
 
-//Arrays, array methods
-const arr = [1, 2, 3];
-//arr.pop();
-//arr.push(10);
-//arr.unshift(67);
-//arr.shift();
-//console.log(arr);
+// Передача по ссылке или по значению
 
-//Перебираем массив
-for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
-}
+//Работаем с примитивными данными
+let a = 5,
+    b = a;
+b = b + 5;
+console.log(b); //10
+console.log(a); //5
 
-// for of
-for (let value of arr) {
-    console.log(value);
-}
+//Работаем с объектами
+const obj = {
+    a: 5,
+    b: 1
+};
 
-//Избегаем ошибки
-const aye = [4, 8, 9, 6];
-aye[99] = 8;
-console.log(aye.length);
-console.log(aye);
+const copy = obj;
+copy.a = 10;
+console.log(copy); //{ a: 10, b: 1 }
+console.log(obj); //{ a: 10, b: 1 }
 
-//Using for.Each();
-const apic = [1, 3, 6, 9, 8];
-apic.forEach(function(item, i, apic) {
-    console.log(`${i}: ${item} в массиве ${apic}`);
-});
+//Создаем ПОВЕРХНОСТНУЮ копию объекта с помощью цикла
+function coppy(mainObj) {
+    let objCopy = {};
 
-//Using split() and join() methods
-const strr = prompt("Введите любимые продукты через запятую", "");
-const products = strr.split(", ");
-console.log(products);
-console.log(products.join("; "));
+    let key; //как вариант, можно объявить переменную здесь
+    for (key in mainObj) {
+        objCopy[key] = mainObj[key];
+    }
+    return objCopy;
+} 
 
-//Using sort() method for arrays with string values inside
-const someArray = ["qqq", "bbb", "aaa"];
-someArray.sort();
-console.log(someArray);
-
-//Using sort() method for arrays with numbers inside
-const numberArray = [2, 13, 26, 8, 10];
-console.log(numberArray.sort(compareNum));
-
-function compareNum(a, b) {
-    return a - b;
-}
-
-//Objects, object methods, object destructuring
-const options = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    },
-    makeTest: function() {
-        console.log("Test");
+const numbers = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
     }
 };
 
-options.makeTest();
+const newNumbers = coppy(numbers);
+newNumbers.a = 10;
+newNumbers.c.x = 10;
+console.log(newNumbers); //{ a: 10, b: 5, c: { x: 10, y: 4 } }
+console.log(numbers); //{ a: 2, b: 5, c: { x: 10, y: 4 } }
 
-//Destructuring Objects
-const {border, bg} = options.colors;
-console.log(border);
-console.log(bg);
+// Object.assign() method
+const add = {
+    d: 17, 
+    e: 20
+};
 
-/* deleting key:value 
-delete options.name;
-console.log(options); */
+console.log(Object.assign(numbers, add)); //{ a: 2, b: 5, c: { x: 10, y: 4 }, d: 17, e: 20 }
+console.log(numbers); //{ a: 2, b: 5, c: { x: 10, y: 4 }, d: 17, e: 20 }
 
-//Перебираем свойства объекта с помощью for in
-for (let key in options) {
-    if (typeof(options[key]) === "object") {
-        for (let i in options[key]) {
-        console.log(`Свойство ${i} имеет значение ${options[key][i]}`); 
-        }
-    } else {
-    console.log(`Свойство ${key} имеет значение ${options[key]}`);    
-    } 
+//Используем Object.assign() method для создания ПОВЕРХНОСТНОЙ копии объекта
+const clone = Object.assign({}, add);
+clone.d = 20;
+console.log(add); //{ d: 17, e: 20 }
+console.log(clone); //{ d: 20, e: 20 }
+
+//Используем slice() method для создания ПОВЕРХНОСТНОЙ копии массива
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();
+newArray[1] = 'phrase';
+console.log(newArray); //[ 'a', 'phrase', 'c' ]
+console.log(oldArray); //[ 'a', 'b', 'c' ]
+
+//spread operaror
+const video = ['youtube', 'vimeo', 'rutube'],
+    blogs = ['wordpress', 'livejournal', 'blogger'],
+    internet = [...video, ...blogs, 'vk', 'fb'];
+console.log(internet); // ['youtube', 'vimeo', 'rutube', 'wordpress', 'livejournal', 'blogger', 'vk', 'fb']
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
 }
 
-//Используем счётчик, чтобы узнать сколько свойств в объекте
-let counter = 0;
-for (let key in options) {
-    counter++;
-}
-console.log(counter);
+const num = [2, 4, 7];
+log(...num);
 
-// Используем Oblect.keys(), чтобы узнать сколько свойств в объекте
-console.log(Object.keys(options));
-console.log(Object.keys(options).length);
-console.log(Object.keys(options["colors"]));
-console.log(Object.keys(options["colors"]).length);
-console.log(Object.keys(options.colors).length);
-console.log(Object.keys(options.colors));
+//Создаем копию массива с помощью оператора spread
+const array = ['a', 'b'];
+const newAarray = [...array];
+newAarray[1] = "c";
+console.log(array); //[ 'a', 'b' ]
+console.log(newAarray); //[ 'a', 'c' ]
 
-
-//Callback function examples
-function first() {
-    //do something
-    setTimeout(function() {
-        console.log(1);
-    }, 500);
-}
-
-function second() {
-    console.log(2);
-}
-
-first();
-second();
-
-function learnJS(lang, callback) {
-    console.log(`I am learning ${lang}`);
-    callback();
-}
-
-/* function done() {
-    console.log("I have watched this lesson");
-}
-learnJS("Javascript", done); */
-
-//Using Anonymous Function
-learnJS("JavaScript", function() {
-    console.log("I have watched this lesson");
-});
-
- // Потренироваться и переписать цикл еще двумя способами
- // Первый способ
-
-/* let i = 0;
-
-while (i < 2) {
-    let a = prompt("Один из последних просмотренных фильмов?", " ");
-    let b = +prompt("На сколько его оцените?", " ");
-    i++;
-
-    if (a != null && b != null && a != '' && b != '' && a.length < 50 && b > 0) {
-        personalMovieDB.movies[a] = b;
-        console.log('done');
-    } else {
-        console.log('error');
-        i--;
-    }
-} */
-
-//Второй способ
-
-/* let i = 0;
-do {
-    let a = prompt("Один из последних просмотренных фильмов?", " ");
-    let b = +prompt("На сколько его оцените?", " ");
-    i++;
-
-    if (a != null && b != null && a != '' && b != '' && a.length < 50 && b > 0) {
-        personalMovieDB.movies[a] = b;
-        console.log('done');
-    } else {
-        console.log('error');
-        i--;
-    }
-}
-while (i < 2); */
-
-console.log(personalMovieDB);
-console.log(personalMovieDB.movies); 
-
-
-
-// Тренируемся по свойствам и методам строк и чисел
-let str = "test";
-console.log(str.toUpperCase());
-console.log(str);
-
-// indexOf() method
-let fruit = "Some fruit";
-console.log(fruit.indexOf("fox"));
-console.log(fruit.indexOf("fruit"));
-
-//меняем строки using slice(), substring(), substr() methods
-let logg = "Hello World";
-console.log(logg.substr(6, 5));
-
-// using Math methods
-let figure = 12.8;
-console.log(Math.floor(figure));
-
-// using parseInt() and parseFloat()
-let test = "12.2px";
-console.log(parseInt(test));
-console.log(parseFloat(test));
+//Создаем копию объекта с помощью оператора spread
+const q = {
+    one: 1,
+    two: 2
+};
+const newQ = {...q};
+newQ.one = 10;
+console.log(newQ); //{ one: 10, two: 2 }
+console.log(q); //{ one: 1, two: 2 }
