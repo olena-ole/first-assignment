@@ -69,6 +69,55 @@ function writeYourGenres() {
 
 writeYourGenres();
 
+//Arrays, array methods
+const arr = [1, 2, 3];
+//arr.pop();
+//arr.push(10);
+//arr.unshift(67);
+//arr.shift();
+//console.log(arr);
+
+//Перебираем массив
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}
+
+// for of
+for (let value of arr) {
+    console.log(value);
+}
+
+//Избегаем ошибки
+const aye = [4, 8, 9, 6];
+aye[99] = 8;
+console.log(aye.length);
+console.log(aye);
+
+//Using for.Each();
+const apic = [1, 3, 6, 9, 8];
+apic.forEach(function(item, i, apic) {
+    console.log(`${i}: ${item} в массиве ${apic}`);
+});
+
+//Using split() and join() methods
+const strr = prompt("Введите любимые продукты через запятую", "");
+const products = strr.split(", ");
+console.log(products);
+console.log(products.join("; "));
+
+//Using sort() method for arrays with string values inside
+const someArray = ["qqq", "bbb", "aaa"];
+someArray.sort();
+console.log(someArray);
+
+//Using sort() method for arrays with numbers inside
+const numberArray = [2, 13, 26, 8, 10];
+console.log(numberArray.sort(compareNum));
+
+function compareNum(a, b) {
+    return a - b;
+}
+
 //Objects, object methods, object destructuring
 const options = {
     name: 'test',
