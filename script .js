@@ -113,6 +113,55 @@ let personalMovieDB = {
 };
 personalMovieDB.writeYourGenres();
 
+
+//JS Dynamic Typing
+//To String
+//1 (old and rarely used way)
+console.log(typeof(String(null)));//string
+console.log(typeof(String(4)));//string
+
+//2 concatenation
+console.log(typeof(5 + '')); //string
+console.log(typeof(null + '')); //string
+
+const numb = 5;
+console.log("https://fb.com/catalog/" + numb); //https://fb.com/catalog/5
+
+const fontSize = 26 + "px";
+console.log(fontSize); //26px
+
+//To Number
+//1 (old and rarely used way)
+console.log(typeof(Number("9"))); //number
+
+//2) Unary plus (+)
+console.log(typeof(+"9")); //number
+
+//3) Using parseInt
+console.log(parseInt("15px", 10)); //15
+
+//To boolean
+// 0, null, '', undefined, NaN - are always false
+// [], {}, ' ', integers and everything else - are always true
+//1) Often used in practice
+let switcher = null;
+if (switcher) {
+    console.log("...Working");
+}
+switcher = 1;
+if (switcher) {
+    console.log("...Working");
+}              //...Working
+
+//2) Using Boolean
+console.log(typeof(Boolean("4"))); // boolean
+
+//3) Using !! + string/number (almost never used)
+console.log(typeof(!!"4")); // boolean
+console.log(!!4); //true
+console.log(!!"4"); //true
+
+
 //JS principles
 let str = 'some';
 let strObj = new String(str);
