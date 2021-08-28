@@ -113,6 +113,66 @@ let personalMovieDB = {
 };
 personalMovieDB.writeYourGenres();
 
+//JS Interview Tasks
+//1
+/* let x = 5;
+alert(x++); //5
+alert(++x); //6 */
+
+//2 console.log([] + false - null + true); //NaN
+console.log([] + false); //false
+console.log(typeof([] + false)); //string (an empty array becomes an empty string - '')
+console.log([] + false - null); //NaN
+console.log("string" - null); //NaN
+console.log([] + false - null + true); //NaN
+console.log([] + false + true); //falsetrue
+console.log(typeof([] + false + true)); //string
+
+//3 последовательное присваивание
+/* let y = 1;
+let x = y = 2;
+alert(x); //2 */
+
+//4 Чему равна сумма [ ] + 1 + 2?
+console.log([] + 1 + 2); //12 ([] becomes '')
+
+//5 Что выведет этот код: alert( "1"[0] )?
+alert("1"[0]); //1
+console.log(typeof('1'[0])); //string
+alert("1"[1]); //undefined
+
+//6 Чему равно 2 && 1 && null && 0 && undefined ?
+// && запинается на false и срабатывает как return
+console.log(2 && 1 && null && 0 && undefined); // null
+console.log(2 && 1); //1
+console.log(2 && 1 && 0); //0
+console.log(2 && 1 && undefined); //undefined
+console.log(2 && 7); //7
+
+//7 Есть ли разница между выражениями? !!(a && b) и (a && b)?
+console.log(!!(1 && 2) === (1 && 2)); //false
+console.log(!!(1 && 2)); //true
+console.log(1 && 2); //2
+console.log(true === 2); //false
+
+//8 Что выведет этот код: alert( null || 2 && 3 || 4 ); ?
+alert( null || 2 && 3 || 4 ); //3
+
+//9 a = [1, 2, 3]; b = [1, 2, 3]; Правда ли что a == b ?
+/* let a = [1, 2, 3],
+    b = [1, 2, 3];
+console.log(a == b); //false
+console.log(a === b); */
+
+//10 Что выведет этот код: alert(+"Infinity"); ?
+alert(+"Infinity"); //Infinity
+console.log(typeof(+"Infinity")); //number
+
+//11 Верно ли сравнение: "Ёжик" > "яблоко" ?
+console.log("Ёжик" > "яблоко"); //false (using Unicode)
+
+//12 Чему равно 0 || "" || 2 || undefined || true || falsе ?
+console.log(0 || "" || 2 || undefined || true || falsе); //2
 
 //JS Dynamic Typing
 //To String
